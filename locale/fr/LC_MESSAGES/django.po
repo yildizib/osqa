@@ -527,7 +527,7 @@ msgstr "votre"
 
 #: forum/actions/meta.py:152 forum/actions/user.py:49
 msgid "his"
-msgstr "sa" # TODO
+msgstr "sa"
 
 #: forum/actions/meta.py:156
 #, python-format
@@ -1528,7 +1528,6 @@ msgid "Email Subject Prefix"
 msgstr "Préfixe du sujet du courriel"
 
 #: forum/settings/email.py:48
-# TODO: theyr
 msgid ""
 "Every email sent through your website will have the subject prefixed by this "
 "string. It's usually a good idea to have such a prefix so your users can "
@@ -3104,7 +3103,7 @@ msgid "gold"
 msgstr "or"
 
 #: forum/skins/default/templates/badges.html:47
-# TODO
+
 msgid "gold badge description"
 msgstr ""
 "L'or est la plus haute distinction. Pour l'obtenir, montrez des "
@@ -3612,7 +3611,7 @@ msgstr "numéro de la page "
 
 #: forum/skins/default/templates/paginator.html:22
 #: forum/skins/default/templates/paginator.html:29
-# TODO
+
 msgid "number - make blank in english"
 msgstr "nombre - effacer"
 
@@ -3682,7 +3681,7 @@ msgid "how privacy policies can be changed"
 msgstr ""
 "Ces règles pourraient être modifiées dans le futur afin d'améliorer la "
 "protection des données personnelles. Tout changement sera notifié par "
-"l'intermédiaire de messages internes au site." # TODO
+"l'intermédiaire de messages internes au site." 
 
 #: forum/skins/default/templates/question.html:111
 #: forum/skins/default/templates/sidebar/recent_tags.html:8
@@ -6606,11 +6605,11 @@ msgstr "réouvrir la question"
 
 #: forum/views/commands.py:388 forum/views/commands.py:400
 msgid "mark posts as community wiki"
-msgstr "marquer comme Wiki" # TODO ?
+msgstr "marquer comme Wiki"
 
 #: forum/views/commands.py:392
 msgid "cancel a community wiki post"
-msgstr "Annuler marquer comme Wiki" # TODO ?
+msgstr "Annuler marquer comme Wiki"
 
 #: forum/views/commands.py:413
 #, python-format
@@ -7814,7 +7813,6 @@ msgid "Please wait while we import your data."
 msgstr "Patientez pendant que nous importons vos données."
 
 #: forum_modules/exporter/templates/running.html:139
-# TODO le ? à ?
 msgid ""
 "\n"
 "            Started <span id=\"time_started\"></span>\n"
