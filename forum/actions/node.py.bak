@@ -187,11 +187,7 @@ class CloseAction(ActionProxy):
         self.node.update_last_activity(self.user, save=True)
 
     def describe(self, viewer=None):
-        if viewer==self.user:
-            s =u"%(user)s, %(post_desc)s  <strong>þu sebeple </strong> kapattýnýz: %(reason)s"
-        else:
-            s =u"%(user)s kullanýcýsý  %(post_desc)s  <strong>þu sebeple </strong> kapattý: %(reason)s"           
-        return s % {           
+        return _("%(user)s closed %(post_desc)s: %(reason)s") % {
             'user': self.hyperlink(self.user.get_profile_url(), self.friendly_username(viewer, self.user)),
             'post_desc': self.describe_node(viewer, self.node),
             'reason': self.extra
@@ -216,11 +212,7 @@ class AnswerToCommentAction(ActionProxy):
             pass
 
     def describe(self, viewer=None):
-        if viewer==self.user:
-            s =u"%(user)s, %(question)s  verilen cevabý yoruma dönüþtürdünüz"
-        else:
-            s =u"%(user)s kullanýcýsý, %(question)s verilen cevabý yoruma dönüþtürdü"           
-        return s % {          
+        return _("%(user)s converted an answer to %(question)s into a comment") % {
             'user': self.hyperlink(self.user.get_profile_url(), self.friendly_username(viewer, self.user)),
             'question': self.describe_node(viewer, self.node.abs_parent),
         }
@@ -238,11 +230,7 @@ class CommentToAnswerAction(ActionProxy):
         question.reset_answer_count_cache()
 
     def describe(self, viewer=None):
-        if viewer==self.user:
-            s =u"%(user)s, %(question)s  yapýlan yorumu cevaba dönüþtürdünüz"
-        else:
-            s =u"%(user)s kullanýcýsý, %(question)s yapýlan yorumu cevaba dönüþtürdü"           
-        return s % {          
+        return _("%(user)s converted comment on %(question)s into an answer") % {
             'user': self.hyperlink(self.user.get_profile_url(), self.friendly_username(viewer, self.user)),
             'question': self.describe_node(viewer, self.node.abs_parent),
         }
@@ -266,11 +254,7 @@ class CommentToQuestionAction(NodeEditAction):
         self.node.save()
 
     def describe(self, viewer=None):
-        if viewer==self.user:
-            s =u"%(user)s, %(question)s  yapýlan yorumu yeni bir soruya dönüþtürdünüz"
-        else:
-            s =u"%(user)s kullanýcýsý, %(question)s  yapýlan yorumu yeni bir soruya dönüþtürdü"           
-        return s % {          
+        return _("%(user)s converted comment on %(question)s to a new question") % {
             'user': self.hyperlink(self.user.get_profile_url(), self.friendly_username(viewer, self.user)),
             'question': self.describe_node(viewer, self.node.abs_parent),
         }
@@ -301,11 +285,7 @@ class AnswerToQuestionAction(NodeEditAction):
 
 
     def describe(self, viewer=None):
-        if viewer==self.user:
-            s =u"%(user)s, %(question)s  verilen cevabý baþka bir soru haline dönüþtürdünüz"
-        else:
-            s =u"%(user)s kullanýcýsý, %(question)s  verilen cevabý baþka bir soru haline dönüþtürdü"           
-        return s % {
+        return _("%(user)s converted an answer to %(question)s into a separate question") % {
             'user': self.hyperlink(self.user.get_profile_url(), self.friendly_username(viewer, self.user)),
             'question': self.describe_node(viewer, self.node.abs_parent),
         }
@@ -323,11 +303,7 @@ class WikifyAction(ActionProxy):
         self.node.update_last_activity(self.user, save=True)
 
     def describe(self, viewer=None):
-        if viewer==self.user:
-            s =u"%(user)s,  %(node)s   anonim  olarak iþaretlediniz"
-        else:
-            s =u"%(user)s kullanýcýsý,  %(node)s anonim  olarak iþaretledi"           
-        return s % {        
+        return _("%(user)s marked %(node)s as community wiki.") % {
             'user': self.hyperlink(self.user.get_profile_url(), self.friendly_username(viewer, self.user)),
             'node': self.describe_node(viewer, self.node),
         }

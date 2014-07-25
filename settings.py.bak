@@ -145,9 +145,3 @@ if not DEBUG:
         pass
 
 AUTHENTICATION_BACKENDS = ['django.contrib.auth.backends.ModelBackend',]
-#TODO-degistir
-EMAIL_HOST = 'smtp.webfaction.com'
-EMAIL_HOST_USER = 'ziusudra'
-EMAIL_HOST_PASSWORD = 'ZiUsUdRa'
-DEFAULT_FROM_EMAIL = 'info@futbolsorucevap.com'
-SERVER_EMAIL = 'info@futbolsorucevap.com'
