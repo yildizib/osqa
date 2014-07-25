@@ -1,6 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf8 -*- 
-
 from django.utils.translation import ungettext, ugettext as _
 from django.core.urlresolvers import reverse
 from django.db.models import F
@@ -24,12 +21,8 @@ class UserJoinsAction(ActionProxy):
         send_template_email([self.user], "auth/welcome_email.html", {'validation_code': hash})
 
     def describe(self, viewer=None):
-        if viewer==self.user:
-            s = u"%(user)s, %(app_name)s topluluðuna katýldýnýz"
-        else:
-            s =u"%(user)s kullanýcýsý, %(app_name)s topluluðuna katýldý"           
-        return s % {
-        'user': self.hyperlink(self.user.get_profile_url(), self.friendly_username(viewer, self.user)),
+        return _("%(user)s %(have_has)s joined the %(app_name)s Q&A community") % {
+        'user': self.hyperlink(self.user.get_absolute_url(), self.friendly_username(viewer, self.user)),
         'have_has': self.viewer_or_user_verb(viewer, self.user, _('have'), _('has')),
         'app_name': APP_SHORT_NAME,
         }
@@ -38,12 +31,9 @@ class UserLoginAction(ActionProxy):
     verb = _("logged in")
 
     def describe(self, viewer=None):
-        if viewer==self.user:
-            s = u"%(user)s giriþ yaptýnýz"
-        else:
-            s =u"%(user)s kullanýcýsý giriþ yaptý"           
-        return s % {        
-            'user' : self.hyperlink(self.user.get_profile_url(), self.friendly_username(viewer, self.user)),
+        return _("%(user)s %(have_has)s logged in") % {
+            'user' : self.hyperlink(self.user.get_absolute_url(), self.friendly_username(viewer, self.user)),
+            'have_has': self.viewer_or_user_verb(viewer, self.user, _('have'), _('has')),
         }
 
 class EmailValidationAction(ActionProxy):
