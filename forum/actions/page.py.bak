@@ -1,6 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf8 -*- 
-
 from django.utils.translation import ugettext as _
 from forum.models.action import ActionProxy
 from forum.models import Page
@@ -17,11 +14,7 @@ class NewPageAction(ActionProxy):
         self.node = page
 
     def describe(self, viewer=None):
-        if viewer==self.user:
-            s =u"%(user)s, %(page)s baþlýklý yeni bir sayfa oluþturdunuz"
-        else:
-            s =u"%(user)s kullanýcýsý, %(page)s baþlýklý yeni bir sayfa oluþturdu"     
-        return s % {         
+        return _("%(user)s created a new page titled %(page)s") % {
         'user': self.hyperlink(self.user.get_profile_url(), self.friendly_username(viewer, self.user)),
         'page': self.hyperlink(self.node.get_absolute_url(), self.node.title)
         }
@@ -40,11 +33,7 @@ class EditPageAction(ActionProxy):
         self.node.save()
 
     def describe(self, viewer=None):
-        if viewer==self.user:
-            s =u"%(user)s, %(page)s baþlýklý sayfayý güncellediniz"
-        else:
-            s =u"%(user)s kullanýcýsý, %(page)s baþlýklý sayfayý güncelledi"     
-        return s % {         
+        return _("%(user)s edited the page titled %(page)s") % {
         'user': self.hyperlink(self.user.get_profile_url(), self.friendly_username(viewer, self.user)),
         'page': self.hyperlink(self.node.get_absolute_url(), self.node.title)
         }
@@ -63,11 +52,7 @@ class PublishAction(ActionProxy):
         self.node.save()
 
     def describe(self, viewer=None):
-        if viewer==self.user:
-            s =u"%(user)s, %(page)s baþlýklý yeni bir sayfa yayýmladýnýz"
-        else:
-            s =u"%(user)s kullanýcýsý, %(page)s baþlýklý yeni bir sayfa yayýmladý"     
-        return s % {          
+        return _("%(user)s published a new page titled %(page)s") % {
         'user': self.hyperlink(self.user.get_profile_url(), self.friendly_username(viewer, self.user)),
         'page': self.hyperlink(self.node.get_absolute_url(), self.node.title)
         }
