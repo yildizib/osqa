@@ -3,16 +3,6 @@ from django.utils.translation import ugettext as _
 
 class Answer(Node):
     friendly_name = _("answer")
-    friendly_name_i_hali            = _(u"cevabý")
-    friendly_name_e_hali            = _(u"cevaba")
-    friendly_name_de_hali           = _(u"cevapta")
-    friendly_name_den_hali          = _(u"cevaptan")
-    friendly_name_adindaki_hali     = _(u"cevabý")
-    friendly_name_adindaki_i_hali   = _(u"cevabýný")
-    friendly_name_adindaki_e_hali   = _(u"cevabýna")
-    friendly_name_adindaki_de_hali  = _(u"cevabýnda")
-    friendly_name_adindaki_den_hali = _(u"cevabýndan")    
-
 
     class Meta(Node.Meta):
         proxy = True
